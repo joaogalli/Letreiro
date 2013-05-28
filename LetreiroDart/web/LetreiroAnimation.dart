@@ -9,7 +9,9 @@ class LetreiroAnimation {
   
   CanvasRenderingContext2D mainContext;
   
-  int letterWidth;
+  int letterWidth, letterHeight;
+  
+  double letterScalex, letterScaley;
   
   List letterAnimations;
   
@@ -27,10 +29,14 @@ class LetreiroAnimation {
     letterAnimations = new List(word.length);
     
     letterWidth = (mainCanvas.width / word.length).toInt();
-    int letterHeight = mainCanvas.height;
+    letterHeight = mainCanvas.height;
     
+    letterScalex = letterWidth / 100;
+    letterScaley = letterHeight / 100;
+    print(letterScalex.toString() + ":" + letterScaley.toString());
+
     for (int i = 0; i < word.length; i++) {
-      CanvasElement letterCanvas = new CanvasElement(width: letterWidth, height: letterHeight);
+      CanvasElement letterCanvas = new CanvasElement(width: 100, height: 100);
       LetterAnimation la = new LetterAnimation(letterCanvas, letters);
       la.letter = word[i];
       
@@ -42,16 +48,26 @@ class LetreiroAnimation {
   }
 
   void draw() {
-    print('1');
+    mainContext.setFillColorRgb(200, 0, 0);
+    mainContext.fillRect(0, 0, mainCanvas.width, mainCanvas.height);
+    
     bool finished = true;
     for (int i = 0; i < letterAnimations.length; i++) {
       LetterAnimation la = letterAnimations[i];
+      
+      CanvasRenderingContext2D cx = la.canvas.getContext("2d");
       la.draw();
       
-      mainContext.drawImage(la.canvas, (i*letterWidth).toInt(), 0);
+      CanvasElement canvasAux = new CanvasElement(width: letterWidth, height: letterHeight);
+      CanvasRenderingContext2D cxAux = canvasAux.getContext("2d");
+      cxAux.scale(letterScalex, letterScaley);
+      cxAux.drawImage(la.canvas, 0, 0);
       
-      if (!la.reached)
+      mainContext.drawImage(canvasAux, (i*letterWidth), 0);
+      
+      if (!la.reached) {
         finished = false;
+      }
     }
     
     if (finished) {

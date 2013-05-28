@@ -14,12 +14,6 @@ class FirstFrame extends Frame {
     CanvasImageSource letterDraw = drawLetter(width, height, letter);
     cx.drawImage(letterDraw, 0, 0);
     
-    // top-trave
-    cx.setFillColorRgb(0, 0, 0, 0.5);
-    cx.fillRect(0, (canvas.height/2) - 10, canvas.width, 10);
-    cx.setFillColorRgb(255, 255, 255, 0.5);
-    cx.fillRect(0, (canvas.height/2), canvas.width, 10);
-    
     return canvas;
   }
 

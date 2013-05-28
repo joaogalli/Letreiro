@@ -25,12 +25,6 @@ class ThirdFrame extends Frame {
     CanvasImageSource flapLetter = drawFlapLetter(width, (height * 0.6).toInt(), newLetter);
     cx.drawImage(flapLetter, 0, (canvas.height/2) - flapSize);
     
-    // top-trave
-    cx.setFillColorRgb(0, 0, 0, 0.5);
-    cx.fillRect(0, (canvas.height/2) - 10, canvas.width, 10);
-    cx.setFillColorRgb(255, 255, 255, 0.5);
-    cx.fillRect(0, (canvas.height/2), canvas.width, 10);
-    
     return canvas;
   }
   
