@@ -1,5 +1,4 @@
-import 'dart:html';
-import 'Frame.dart';
+part of letreiro;
 
 class ThirdFrame extends Frame {
   

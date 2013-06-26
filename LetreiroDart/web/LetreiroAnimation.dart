@@ -1,7 +1,4 @@
-import 'dart:html';
-import 'dart:async';
-
-import 'LetterAnimation.dart';
+part of letreiro;
 
 class LetreiroAnimation {
   

@@ -1,9 +1,4 @@
-import 'dart:html';
-import 'dart:async';
-
-import 'FirstFrame.dart';
-import 'SecondFrame.dart';
-import 'ThirdFrame.dart';
+part of letreiro;
 
 class LetterAnimation {
   

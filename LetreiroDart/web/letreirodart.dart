@@ -1,7 +1,14 @@
+library letreiro;
+
 import 'dart:html';
 import 'dart:async';
 
-import 'LetreiroAnimation.dart';
+part 'LetreiroAnimation.dart';
+part 'LetterAnimation.dart';
+part 'Frame.dart';
+part 'FirstFrame.dart';
+part 'SecondFrame.dart';
+part 'ThirdFrame.dart';
 
 void main() {
   createLetreiro("#canvy", 800, 120, "NOMESELA");
